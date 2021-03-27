@@ -19,7 +19,9 @@ void myThread::run() {
 	HMODULE hMod[100];
 	DWORD cbNeeded;
 	int moduleNum;
-	BOOL bSuccess = CreateProcessA("E:\\record\\6th\\softwareSecurity\\syringe\\Debug\\syringe.exe", filePath, NULL, NULL, FALSE, CREATE_NEW_CONSOLE, NULL, NULL, &startupInfo, &processInformation);
+	// *****需要修改部分****
+	// 启动注册器进程
+	BOOL bSuccess = CreateProcessA(".\\syringeFolder\\syringe.exe", filePath, NULL, NULL, FALSE, CREATE_NEW_CONSOLE, NULL, NULL, &startupInfo, &processInformation);
 	sprintf(temp, "%d", processInformation.dwProcessId);
 	emit newProcessID(QString(QLatin1String(temp)));
 	sprintf(temp, "%s", priorityStr[GetProcessPriority(processInformation.hProcess)]);
