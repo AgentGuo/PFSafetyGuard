@@ -288,7 +288,7 @@ void modifyStartupRegistry() {
 	RegCloseKey(hKey);
 }
 void openAnotherFolder() {
-	HANDLE hOpenFile = (HANDLE)CreateFile(L"testFolder\\a.txt", GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ, NULL, CREATE_ALWAYS, NULL, NULL);
+	HANDLE hOpenFile = (HANDLE)CreateFile(L".\\testFolder\\a.txt", GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ, NULL, CREATE_ALWAYS, NULL, NULL);
 	CloseHandle(hOpenFile);
 }
 void recvData() {
