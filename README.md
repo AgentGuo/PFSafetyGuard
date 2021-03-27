@@ -27,4 +27,52 @@ then run it
 
 ## 2. 简要展示
 
-![imgshow](imgShow.png)
+![1](./img/1.png)
+
+## 3. 详细说明
+
+### 3.1 整体思路
+
+系统整体设计思路
+
+![2](./img/2.png)
+
+### 3.2 HOOK API
+
+主要完成了以下18个winAPI的HOOK，主要涉及弹窗API、文件打开读写API、堆操作API、注册表操作API、网络通信API（socket）
+
+~~~cpp
+DetourAttach(&(PVOID&)OldMessageBoxW, NewMessageBoxW);
+DetourAttach(&(PVOID&)OldMessageBoxA, NewMessageBoxA);
+DetourAttach(&(PVOID&)OldCreateFile, NewCreateFile);
+DetourAttach(&(PVOID&)OldWriteFile, NewWriteFile);
+DetourAttach(&(PVOID&)OldReadFile, NewReadFile);
+DetourAttach(&(PVOID&)OldHeapCreate, NewHeapCreate);
+DetourAttach(&(PVOID&)OldHeapDestory, NewHeapDestory);
+DetourAttach(&(PVOID&)OldHeapFree, NewHeapFree);
+DetourAttach(&(PVOID&)OldRegCreateKeyEx, NewRegCreateKeyEx);
+DetourAttach(&(PVOID&)OldRegSetValueEx, NewRegSetValueEx);
+DetourAttach(&(PVOID&)OldRegDeleteValue, NewRegDeleteValue);
+DetourAttach(&(PVOID&)OldRegCloseKey, NewRegCloseKey);
+DetourAttach(&(PVOID&)OldRegOpenKeyEx, NewRegOpenKeyEx);
+DetourAttach(&(PVOID&)Oldsocket, Newsocket);
+DetourAttach(&(PVOID&)Oldbind, Newbind);
+DetourAttach(&(PVOID&)Oldsend, Newsend);
+DetourAttach(&(PVOID&)Oldconnect, Newconnect);
+DetourAttach(&(PVOID&)Oldrecv, Newrecv);
+~~~
+
+举个栗子，比如成功勾取一次socket通信过程：
+
+![3](./img/3.png)
+
+### 3.3 异常行为分析
+
+主要完成了五种软件行为分析
+
+* 修改可执行文件（.exe .dll .ocx）
+* 自我复制
+* 对多个文件夹下的文件进行读写
+* 堆重复释放
+* 修改注册表开机启动项
+
