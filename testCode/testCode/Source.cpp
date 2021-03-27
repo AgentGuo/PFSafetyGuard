@@ -151,7 +151,7 @@ void writeFileString()
 	int fileSize = 0;
 	char writeString[100];
 	bool flag;
-	HANDLE hOpenFile = (HANDLE)CreateFile(L"E:\\record\\6th\\softwareSecurity\\code\\testCode\\Debug\\a.txt", GENERIC_READ| GENERIC_WRITE, FILE_SHARE_READ, NULL, CREATE_ALWAYS, NULL, NULL);
+	HANDLE hOpenFile = (HANDLE)CreateFile(L"a.txt", GENERIC_READ| GENERIC_WRITE, FILE_SHARE_READ, NULL, CREATE_ALWAYS, NULL, NULL);
 	if (hOpenFile == INVALID_HANDLE_VALUE)
 	{
 		hOpenFile = NULL;
@@ -173,7 +173,7 @@ void readFileString() {
 	CHAR* pBuffer;
 	int fileSize = 0;
 	bool flag;
-	HANDLE hOpenFile = (HANDLE)CreateFile(L"E:\\record\\6th\\softwareSecurity\\code\\testCode\\Debug\\a.txt", GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_ALWAYS, NULL, NULL);
+	HANDLE hOpenFile = (HANDLE)CreateFile(L"a.txt", GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_ALWAYS, NULL, NULL);
 	if (hOpenFile == INVALID_HANDLE_VALUE)
 	{
 		hOpenFile = NULL;
@@ -268,12 +268,12 @@ void headRepeatedRelease() {
 	HeapDestroy(hHeap);
 }
 void modifyExProgram() {
-	HANDLE hOpenFile = (HANDLE)CreateFile(L"E:\\record\\6th\\softwareSecurity\\code\\testCode\\Debug\\a.exe", GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ, NULL, CREATE_ALWAYS, NULL, NULL);
+	HANDLE hOpenFile = (HANDLE)CreateFile(L"a.exe", GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ, NULL, CREATE_ALWAYS, NULL, NULL);
 	CloseHandle(hOpenFile);
 }
 void selfReplication() {
 	//testCode.exe
-	HANDLE hOpenFile = (HANDLE)CreateFile(L"E:\\record\\6th\\softwareSecurity\\code\\testCode\\Debug\\testCode.exe", GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_ALWAYS, NULL, NULL);
+	HANDLE hOpenFile = (HANDLE)CreateFile(L"testCode.exe", GENERIC_READ, FILE_SHARE_READ, NULL, OPEN_ALWAYS, NULL, NULL);
 	CloseHandle(hOpenFile);
 }
 void modifyStartupRegistry() {
@@ -288,7 +288,7 @@ void modifyStartupRegistry() {
 	RegCloseKey(hKey);
 }
 void openAnotherFolder() {
-	HANDLE hOpenFile = (HANDLE)CreateFile(L"E:\\record\\6th\\softwareSecurity\\code\\testCode\\testCode\\a.txt", GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ, NULL, CREATE_ALWAYS, NULL, NULL);
+	HANDLE hOpenFile = (HANDLE)CreateFile(L"testFolder\\a.txt", GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ, NULL, CREATE_ALWAYS, NULL, NULL);
 	CloseHandle(hOpenFile);
 }
 void recvData() {
