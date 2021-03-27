@@ -31,11 +31,12 @@ int main(int argc, char* argv[]) {
 	si.cb = sizeof(STARTUPINFO);
 	// 文件夹路径
 	WCHAR DirPath[MAX_PATH + 1];
+	// ******需要修改部分**********
 	wcscpy_s(DirPath, MAX_PATH, L"E:\\record\\6th\\softwareSecurity\\code\\PFDLL\\Debug");	// dll文件夹
 
 	// 文件路径
 	char DLLPath[MAX_PATH + 1] = "E:\\record\\6th\\softwareSecurity\\code\\PFDLL\\Debug\\PFDLL.dll"; // dll的地址
-
+	// ******需要修改部分**********
 	// 程序路径
 	WCHAR EXE[MAX_PATH + 1] = { 0 };
 	//wcscpy_s(EXE, MAX_PATH, L"E:\\record\\6th\\softwareSecurity\\CCProxy\\CCProxy.exe"); // MessageBoxA
