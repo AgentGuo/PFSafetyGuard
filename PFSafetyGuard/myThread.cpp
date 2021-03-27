@@ -20,7 +20,7 @@ void myThread::run() {
 	DWORD cbNeeded;
 	int moduleNum;
 	// *****需要修改部分****
-	// 启动注册器进程
+	// 启动注射器进程
 	BOOL bSuccess = CreateProcessA(".\\syringeFolder\\syringe.exe", filePath, NULL, NULL, FALSE, CREATE_NEW_CONSOLE, NULL, NULL, &startupInfo, &processInformation);
 	sprintf(temp, "%d", processInformation.dwProcessId);
 	emit newProcessID(QString(QLatin1String(temp)));
