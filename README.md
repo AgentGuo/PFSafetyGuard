@@ -21,4 +21,9 @@
 然后需要修改程序中硬编码的一些路径（懒得改了:laughing:）
 
 * [PFSafetyGuard/syringe/syringe/Source.cpp](https://github.com/AgentGuo/PFSafetyGuard/blob/main/syringe/syringe/Source.cpp)：line34 - line39
+* [PFSafetyGuard/PFSafetyGuard/myThread.cpp](https://github.com/AgentGuo/PFSafetyGuard/blob/main/PFSafetyGuard/myThread.cpp)：line24
+
+then run it
+
+## 2. 简要展示
 
